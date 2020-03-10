@@ -17,6 +17,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+  instance:
+    prefer-ip-address: true 
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
  
 #以下配置问默认配置,不写的话也可以,zuul会直接从eureka获取注册信息来完成路径的配置 
 zuul:
